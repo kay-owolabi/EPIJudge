@@ -7,7 +7,23 @@ from test_framework import generic_test
 def merge_two_sorted_lists(L1: Optional[ListNode],
                            L2: Optional[ListNode]) -> Optional[ListNode]:
     # TODO - you fill in here.
-    return None
+    sentinel = ListNode()
+    it = sentinel
+    while L1 and L2:
+        if L1.data < L2.data:
+            it.next = L1
+            L1 = L1.next
+        else:
+            it.next = L2
+            L2 = L2.next
+        it = it.next
+
+    if L1:
+        it.next = L1
+    else:
+        it.next = L2
+
+    return sentinel.next
 
 
 if __name__ == '__main__':
