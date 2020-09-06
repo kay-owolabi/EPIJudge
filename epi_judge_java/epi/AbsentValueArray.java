@@ -24,10 +24,6 @@ public class AbsentValueArray {
   }
 
   public static void main(String[] args) {
-    System.exit(
-        GenericTest
-            .runFromAnnotations(args, "AbsentValueArray.java",
-                                new Object() {}.getClass().getEnclosingClass())
-            .ordinal());
+    System.exit(GenericTest.runFromAnnotations(args, "AbsentValueArray.java", new Object() {}.getClass().getEnclosingClass()).ordinal());
   }
 }

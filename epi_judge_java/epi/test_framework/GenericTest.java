@@ -219,20 +219,16 @@ public class GenericTest {
   public static TestResult runFromAnnotations(String[] commandlineArgs,
                                               String testFile,
                                               Class testClass) {
-    BiPredicate<Object, Object> comparator =
-        findCustomComparatorByAnnotation(testClass);
+    BiPredicate<Object, Object> comparator = findCustomComparatorByAnnotation(testClass);
     Field expectedType = findCustomExpectedTypeByAnnotation(testClass);
-    Consumer<TestConfig> programConfig =
-        findProgramConfigByAnnotation(testClass);
+    Consumer<TestConfig> programConfig = findProgramConfigByAnnotation(testClass);
 
     Method testFunc = findMethodWithAnnotation(testClass, EpiTest.class);
     if (testFunc == null) {
       throw new RuntimeException("Missing method with EpiTest annotation");
     }
 
-    return genericTestMain(commandlineArgs, testFile,
-                           testFunc.getAnnotation(EpiTest.class).testDataFile(),
-                           testFunc, comparator, expectedType, programConfig);
+    return genericTestMain(commandlineArgs, testFile, testFunc.getAnnotation(EpiTest.class).testDataFile(), testFunc, comparator, expectedType, programConfig);
   }
 
   private static Field

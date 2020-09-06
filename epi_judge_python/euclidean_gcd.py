@@ -3,7 +3,7 @@ from test_framework import generic_test
 
 def gcd(x: int, y: int) -> int:
     # TODO - you fill in here.
-    return 0
+    return x if y == 0 else gcd(y, x % y)
 
 
 if __name__ == '__main__':

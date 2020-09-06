@@ -6,8 +6,6 @@ from test_framework import generic_test
 
 def merge_sorted_arrays(sorted_arrays: List[List[int]]) -> List[int]:
     # TODO - you fill in here.
-
-    result = []
     min_heap: List[Tuple[int, int]] = []
     sorted_arrays_iterators = [iter(x) for x in sorted_arrays]
 
@@ -16,6 +14,7 @@ def merge_sorted_arrays(sorted_arrays: List[List[int]]) -> List[int]:
         if first_element is not None:
             heapq.heappush(min_heap, (first_element, i))
 
+    result = []
     while min_heap:
         smallest_entry, i = heapq.heappop(min_heap)
         smallest_array_iter = sorted_arrays_iterators[i]

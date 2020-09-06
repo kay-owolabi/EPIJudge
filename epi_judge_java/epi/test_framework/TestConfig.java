@@ -2,6 +2,7 @@
 package epi.test_framework;
 
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.BiFunction;
@@ -159,7 +160,7 @@ public class TestConfig {
     }
 
     if (config.testDataDir != null && !config.testDataDir.isEmpty()) {
-      if (!Files.isDirectory(Paths.get(config.testDataDir))) {
+      if (!Files.isDirectory(Path.of(config.testDataDir))) {
         throw new RuntimeException(String.format(
             "CL: --test_data_dir argument (%s) is not a directory",
             config.testDataDir));
